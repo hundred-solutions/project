@@ -34,12 +34,12 @@
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="start_date"/>
                 <field name="end_date"/>
-                <field name="progress" widget="progressbar" class="oe_inline"/>
+                <!--field name="progress" widget="progressbar" class="oe_inline"/-->
             </xpath>
         </field>
     </record>
 <!--    Inheriting project task tree view to add the necessary fields-->
-    <record id="view_task_tree2" model="ir.ui.view">
+    <!--record id="view_task_tree2" model="ir.ui.view">
         <field name="name">project.task.view.tree.inherit.projects.task.checklists</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_tree2"/>
@@ -48,5 +48,5 @@
                 <field name="progress" widget="progressbar"/>
             </xpath>
         </field>
-    </record>
+    </record-->
 </odoo>

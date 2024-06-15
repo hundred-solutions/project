@@ -28,8 +28,8 @@ class ProjectTask(models.Model):
 
     start_date = fields.Datetime(string='Start Date', help="Start Date")
     end_date = fields.Datetime(string='End Date', help="End Date")
-    progress = fields.Float(compute='_compute_progress', string='Progress in %',
-                            help="Progress in %")
+    #progress = fields.Float(compute='_compute_progress', string='Progress in %',
+    #                        help="Progress in %")
     checklist_ids = fields.Many2many('task.checklist',
                                      compute='_compute_checklist_ids',
                                      string='Checklist',
@@ -64,18 +64,19 @@ class ProjectTask(models.Model):
             self.checklist_ids = self.env['task.checklist'].search(
                 [('task_id', '=', rec.id)])
 
-    def _compute_progress(self):
-        """Compute method that calculates the progress percentage for each
-         record. It iterates through the associated checklist items and
-         calculates the percentage of completed activities based on their
-          states. The 'progress' field is updated accordingly. :return: None"""
-        for rec in self:
-            total_completed = 0
-            for activity in rec.checklists_ids:
-                if activity.state in ['cancel', 'done', 'in_progress']:
-                    total_completed += 1
-            if total_completed:
-                rec.progress = float(total_completed) / len(
-                    rec.checklists_ids) * 100
-            else:
-                rec.progress = 0.0
+    # def _compute_progress(self):
+    #    """Compute method that calculates the progress percentage for each
+    #     record. It iterates through the associated checklist items and
+    #     calculates the percentage of completed activities based on their
+    #      states. The 'progress' field is updated accordingly. :return: None"""
+    #    for rec in self:
+    #        total_completed = 0
+    #        for activity in rec.checklists_ids:
+    #            if activity.state in ['cancel', 'done', 'in_progress']:
+    #                total_completed += 1
+    #        if total_completed:
+    #            rec.progress = float(total_completed) / len(
+    #                rec.checklists_ids) * 100
+    #        else:
+    #            rec.progress = 0.0
+    
