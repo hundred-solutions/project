@@ -26,8 +26,8 @@ class ProjectTask(models.Model):
     """Inheriting project_task model to add checklist fields"""
     _inherit = 'project.task'
 
-    start_date = fields.Datetime(string='Start Date', help="Start Date")
-    end_date = fields.Datetime(string='End Date', help="End Date")
+    #start_date = fields.Datetime(string='Start Date', help="Start Date")
+    #end_date = fields.Datetime(string='End Date', help="End Date")
     #progress = fields.Float(compute='_compute_progress', string='Progress in %',
     #                        help="Progress in %")
     checklist_ids = fields.Many2many('task.checklist',
